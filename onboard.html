@@ -508,12 +508,30 @@
          .form-all:before { content: none; } .form-all { margin-top: 72px; }/*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
          /* Injected CSS Code */
       </style>
+      <!-- Hide any Jotform branding/footer elements proactively -->
+      <style type="text/css" id="hide-jf-branding">
+        .formFooter-wrapper,
+        .formFooter,
+        .jf-branding-footer,
+        .jf_branding_footer,
+        .jotform-branding,
+        .jfPoweredBy,
+        [data-component="branding"],
+        [data-testid="branding-container"] {
+          display: none !important;
+          visibility: hidden !important;
+          height: 0 !important;
+          overflow: hidden !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+      </style>
       <script>window.enableEventObserver=true</script>
       <script src="https://cdn.jotfor.ms/s/static/53760b7d161/static/prototype.forms.js" type="text/javascript"></script>
       <script src="https://cdn.jotfor.ms/s/static/53760b7d161/static/jotform.forms.js" type="text/javascript"></script>
       <script src="https://cdn.jotfor.ms/s/static/53760b7d161/js/punycode-1.4.1.min.js" type="text/javascript" defer=""></script>
       <script src="https://cdn.jotfor.ms/s/static/53760b7d161/js/vendor/maskedinput_5.0.9.min.js" type="text/javascript"></script>
-      <script src="https://cdn.jotfor.ms/s/umd/53760b7d161/for-form-branding-footer.js" type="text/javascript" defer=""></script>
+      <!-- Removed Jotform branding injection script -->
       <script type="text/javascript">	JotForm.newDefaultTheme = true;
          JotForm.extendsNewTheme = false;
          JotForm.singleProduct = false;
@@ -525,8 +543,8 @@
          JotForm.replaceTagTest = true;
          JotForm.activeRedirect = "thanktext";
          JotForm.uploadServerURL = "https://upload.jotform.com/upload";
-         JotForm.submitError="jumpToFirstError";
-         window.addEventListener('DOMContentLoaded',function(){window.brandingFooter.init({"formID":252863223212449,"campaign":"powered_by_jotform_le","isCardForm":false,"isLegacyForm":true,"formLanguage":"en"})});
+        JotForm.submitError="jumpToFirstError";
+        // Prevent Jotform branding footer initialization
          JotForm.init(function(){
          /*INIT-START*/
          if (window.JotForm && JotForm.accessible) $('input_2').setAttribute('tabindex',0);
@@ -729,10 +747,9 @@
             </ul>
          </div>
          <script>
-            JotForm.showJotFormPowered = "new_footer";
-         </script>
-         <script>
-            JotForm.poweredByText = "Powered by Jotform";
+            // Disable Jotform branding footer
+            JotForm.showJotFormPowered = false;
+            JotForm.poweredByText = "";
          </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="252863223212449-252863223212449">
          <script type="text/javascript">
             var all_spc = document.querySelectorAll("form[id='252863223212449'] .si" + "mple" + "_spc");
@@ -743,6 +760,31 @@
          </script>
          <input type="hidden" name="event_id" value="1760494217275_252863223212449_a70EJvK"><input type="hidden" name="timeToSubmit" value="20">
       </form>
+      <script>
+        // As a safeguard, remove any injected branding/footer nodes if present
+        (function() {
+          var removeBranding = function() {
+            var selectors = [
+              '.formFooter-wrapper',
+              '.formFooter',
+              '.jf-branding-footer',
+              '.jf_branding_footer',
+              '.jotform-branding',
+              '.jfPoweredBy',
+              '[data-component="branding"]',
+              '[data-testid="branding-container"]'
+            ];
+            selectors.forEach(function(sel) {
+              document.querySelectorAll(sel).forEach(function(node) {
+                node.remove();
+              });
+            });
+          };
+          removeBranding();
+          var observer = new MutationObserver(function() { removeBranding(); });
+          observer.observe(document.documentElement || document.body, { childList: true, subtree: true });
+        })();
+      </script>
      
       <script type="text/javascript">JotForm.isNewSACL=true;</script>
       <div aria-hidden="true" role="dialog" aria-modal="true" tabindex="-1" aria-label="Choose Date" class="calendar popup" data-version="v2" style="position: absolute; display: none; width: 310px;" id="calendar_14">
