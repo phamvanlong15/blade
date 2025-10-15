@@ -1,142 +1,71 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gửi thành công</title>
-    <meta name="color-scheme" content="light" />
-    <style>
-      :root {
-        --primary: #48BBED;
-        --bg: #ffffff;
-        --text: #0f172a; /* slate-900 */
-        --muted: #475569; /* slate-600 */
-        --ring: rgba(72, 187, 237, 0.35);
-        --card: #ffffff;
-        --border: #e2e8f0; /* slate-200 */
-        --shadow: 0 10px 25px rgba(2, 6, 23, 0.06), 0 2px 8px rgba(2, 6, 23, 0.05);
-      }
-      * { box-sizing: border-box; }
-      html, body { height: 100%; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font: 16px/1.6 ui-sans-serif, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      }
-      .wrapper {
-        min-height: 100%;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-      }
-      .card {
-        width: 100%;
-        max-width: 560px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        box-shadow: var(--shadow);
-        padding: 40px 28px;
-        text-align: center;
-      }
-      .mark {
-        width: 78px;
-        height: 78px;
-        margin: 0 auto 18px;
-        border-radius: 50%;
-        background: #ecfeff; /* cyan-50 */
-        display: grid;
-        place-items: center;
-        border: 2px solid var(--primary);
-        box-shadow: 0 0 0 8px var(--ring);
-      }
-      .mark svg {
-        width: 42px;
-        height: 42px;
-        color: var(--primary);
-      }
-      h1 {
-        margin: 0 0 8px;
-        font-size: 28px;
-        line-height: 1.25;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: var(--primary); /* điểm nhấn */
-      }
-      p.lead {
-        margin: 0 0 18px;
-        font-size: 16px;
-        color: var(--muted);
-      }
-      .meta {
-        margin: 4px 0 24px;
-        font-size: 14px;
-        color: #64748b; /* slate-500 */
-      }
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: center;
-      }
-      .btn {
-        appearance: none;
-        border: 1px solid var(--border);
-        background: #fff;
-        color: var(--text);
-        border-radius: 10px;
-        padding: 10px 16px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: box-shadow .2s ease, transform .02s ease, border-color .2s ease, background .2s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .btn:hover {
-        border-color: var(--primary);
-        box-shadow: 0 6px 20px rgba(72, 187, 237, .18);
-      }
-      .btn:active { transform: translateY(1px); }
-      .btn-primary {
-        background: var(--primary);
-        border-color: var(--primary);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background: #35afe6;
-        border-color: #35afe6;
-      }
-      footer {
-        margin-top: 18px;
-        font-size: 12px;
-        color: #94a3b8; /* slate-400 */
-      }
-      @media (max-width: 480px) {
-        .card { padding: 28px 20px; }
-        h1 { font-size: 24px; }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="wrapper" role="main">
-      <section class="card" aria-labelledby="success-title">
-        <div class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M9 12.75l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" opacity="0.3"/>
-          </svg>
-        </div>
-        <h1 id="success-title">Gửi thành công!</h1>
-        <p class="lead">Cảm ơn bạn đã hoàn tất biểu mẫu. Chúng tôi sẽ liên hệ trong thời gian sớm nhất.</p>
-        <p class="meta">Mã tham chiếu (nếu có) sẽ được gửi về email của bạn.</p>
-        <div class="actions">
-          <a class="btn" href="onboard.html" aria-label="Quay lại biểu mẫu">↩ Quay lại biểu mẫu</a>
-          <a class="btn btn-primary" href="#" aria-label="Hoàn tất">Hoàn tất</a>
-        </div>
-        <footer>Giao diện tông trắng, điểm nhấn #48BBED</footer>
-      </section>
-    </main>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gửi thành công</title>
+  <style>
+    :root {
+      --accent: #48BBED;
+      --text: #2C3345;
+      --muted: #6B7280;
+      --bg: #ffffff;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: var(--bg);
+      display: grid;
+      place-items: center;
+    }
+    .container {
+      width: min(92vw, 720px);
+      text-align: center;
+      padding: 48px 28px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .icon-wrap {
+      width: 88px; height: 88px; margin-inline: auto; border-radius: 50%;
+      background: rgba(72,187,237,0.12);
+      display:flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .icon-wrap svg { width: 44px; height: 44px; color: var(--accent); }
+    h1 { margin: 0 0 8px; font-size: clamp(24px, 3.6vw, 32px); color: var(--accent); font-weight: 800; letter-spacing: .2px; }
+    p.lead { margin: 0 auto 20px; max-width: 52ch; color: var(--muted); font-size: clamp(14px, 2.2vw, 16px); line-height: 1.65; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+    .button {
+      appearance: none; border: 2px solid var(--accent); color: var(--accent);
+      background: #fff; padding: 10px 16px; border-radius: 999px; cursor: pointer; font-weight: 600;
+      transition: transform .08s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease;
+      text-decoration: none; display: inline-block;
+    }
+    .button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(72,187,237,.25); }
+    .button.primary { background: var(--accent); color: #fff; }
+    .footer-note { margin-top: 18px; font-size: 12px; color: #9CA3AF; }
+  </style>
+</head>
+<body>
+  <main class="container" role="status" aria-live="polite">
+    <div class="icon-wrap" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <h1>Gửi thành công!</h1>
+    <p class="lead">Cảm ơn bạn đã hoàn tất biểu mẫu. Chúng tôi đã nhận được thông tin và sẽ phản hồi sớm nhất.</p>
+    <div class="actions">
+      <a class="button primary" href="onboard.html" rel="nofollow">Gửi thêm phản hồi</a>
+      <a class="button" href="#" onclick="window.history.length ? window.history.go(-1) : (window.location.href='onboard.html'); return false;">Quay lại</a>
+    </div>
+    <p class="footer-note">Màu chủ đạo là trắng, điểm nhấn sử dụng #48BBED.</p>
+  </main>
+</body>
 </html>

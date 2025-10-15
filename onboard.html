@@ -881,5 +881,27 @@
             </tbody>
          </table>
       </div>
-   </body>
+  <script>
+    (function() {
+      var thankYouUrl = new URL('success.html', window.location.href).href;
+      function applyThankYouRedirect() {
+        if (window.JotForm && typeof JotForm.setCustomThankyouURL === 'function') {
+          try { JotForm.setCustomThankyouURL(thankYouUrl); } catch (e) {}
+          try { JotForm.activeRedirect = 'thankurl'; } catch (e) {}
+          return true;
+        }
+        return false;
+      }
+      if (!applyThankYouRedirect()) {
+        var attempts = 0;
+        var timer = setInterval(function() {
+          attempts++;
+          if (applyThankYouRedirect() || attempts > 30) {
+            clearInterval(timer);
+          }
+        }, 200);
+      }
+    })();
+  </script>
+  </body>
 </html>
